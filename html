@@ -1,0 +1,131 @@
+          <!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Main Button Styling */
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightblue;
+        height: 100px;
+        width: 100%; 
+        font-size: 30px;
+        gap: 15px; /* Spacing between text and loader */
+        border: none;
+        transition: background-color 0.2s;
+        cursor: pointer;
+      }
+    
+      .btn:hover {
+        background-color: rgb(78, 187, 223);
+        box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      .btn:active {
+        font-style: italic;
+        color: white; /* Simplified text color */
+        background-color: rgb(102, 102, 137);
+      } 
+
+      /* The container for the loading animation */
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 35px;  /* Slightly larger for better emoji fit */
+        height: 35px;
+        opacity: 0;          font-size: 20px; /* Hidden by default */
+      }
+         
+      /* The spinning ring */
+      .ring {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.4);     
+        border-top: 2px solid black; 
+        border-radius: 50%;
+        box-sizing: border-box;
+        animation: spinccw 0.8s linear infinite;
+      overflow:visible;
+      }
+
+
+      /* The Hourglass Emoji */
+      .hourglass {
+
+
+
+        /* Manual tweak if the emoji font itself is off-center */
+         
+      }        
+     
+      /* Show and animate when button is held down */
+      .btn:active .wrapper {
+        opacity: 1;                  
+        animation: spincw 2s linear infinite;
+      } 
+     
+      @keyframes spincw {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    
+      @keyframes spinccw {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+      }
+
+      /* Main Layout Box */
+      .card {
+        height: 400px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        border: 5px solid brown;
+        position: absolute;
+        background-color: grey;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centers the card on screen */
+        font-family: sans-serif;
+      }
+
+      .footer {
+        padding: 5px;
+        font-size: 14px;
+        color: #ddd;
+      }
+    </style>
+
+    <title>Joke API</title>
+  </head>
+
+  <body style="background-color:black; margin: 0;">
+    <div style="display:flex;
+    flex-direction: row;width:700px;background-color: azure;">
+    <div class="card">
+      
+      <div style="flex: 1; overflow: hidden;">
+        <img src="images/joker.gif" alt="Joker" style="height: 100%; width: 100%; object-fit: cover;">
+      </div> 
+
+      <button class="btn" onclick="getJoke()">
+        GOT JOKES?
+                  <span class="ring"></span>
+        <div class="wrapper">
+          <span class="ring"></span>
+          <span class="hourglass">⌛</span>
+        </div>
+      </button>
+
+      <div class="footer"> 
+        <em>heyo made by <b>ypd</b> 😉</em>
+      </div>
+      
+    </div><div id="joke" style="flex:1;font-family: italic;font-weight:400;text-emphasis-color:grey;font-size: 30px;"></div></div>
+ 
+ <script src="js/script.js"></script> </body>
+</html>
